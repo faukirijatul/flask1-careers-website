@@ -4,76 +4,198 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flask Careers</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
     <style>
-      /* * {
-        margin: 0;
-        padding: 0;
-      } */
-
-      #container {
-        max-width: 800px;
-        margin: 0 auto;
+      body {
+        background-color: #f8f9fa;
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
       }
 
-      h1 {
-        font-size: 40px;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-          sans-serif;
-        font-weight: normal;
-        color: rgb(8, 6, 6);
-        text-align: center;
+      .navbar {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
 
-      #banner {
+      .hero-banner {
         width: 100%;
-        height: 360px;
+        height: 400px;
         object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
-      h2 {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-          sans-serif;
-        font-size: 32px;
-        color: rgb(28, 20, 20);
+      .section-title {
+        color: #1a1a1a;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
         text-align: center;
-        font-weight: normal;
       }
 
-      .bodytext {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-          sans-serif;
+      .content-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+      }
+
+      .about-text {
+        color: #4a4a4a;
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+
+      .btn-contact {
+        background: linear-gradient(90deg, #007bff, #0056b3);
+        border: none;
+        padding: 0.75rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 50px;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .btn-contact:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+      }
+
+      .open-positions {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        margin-bottom: 2rem;
+      }
+
+      .job-card {
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .job-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-apply {
+        background-color: #28a745;
+        border: none;
+        border-radius: 50px;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      .btn-apply:hover {
+        background-color: #218838;
+        box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .hero-banner {
+          height: 300px;
+        }
+
+        .section-title {
+          font-size: 1.75rem;
+        }
       }
     </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div id="container">
-      <!-- Header -->
-      <h1>Flask Careers</h1>
-      <img id="banner" src="../static/images/image.jpg" alt="banner" />
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="/">{{ company_name }} Careers</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#jobs">Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-primary text-white px-4"
+                href="#contact"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-      <!-- About -->
-      <h2>About Flask Careers</h2>
-      <p class="bodytext">
-        Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus
-        ex sapien vitae pellentesque sem placerat in id cursus mi pretium tellus
-        duis convallis tempus leo eu aenean sed diam urna tempor pulvinar
-        vivamus fringilla lacus nec metus bibendum egestas iaculis massa nisl
-        malesuada lacinia integer nunc posuere ut hendrerit semper vel class
-        aptent taciti sociosqu ad litora torquent per conubia nostra inceptos
-        himenaeos orci varius natoque penatibus et magnis dis parturient montes
-        nascetur ridiculus mus donec rhoncus eros lobortis nulla molestie mattis
-        scelerisque maximus eget fermentum odio phasellus non purus est
-        efficitur laoreet mauris pharetra vestibulum fusce dictum risus.
-      </p>
+    <!-- Main Content -->
+    <div class="content-container">
+      <!-- Banner -->
+      <div class="text-center mb-5">
+        <img
+          class="hero-banner"
+          src="../static/images/image.jpg"
+          alt="Career Banner"
+        />
+      </div>
 
-      <h2>Open Positions</h2>
-      <p>TODO - Show the jobs here</p>
-      <div style="text-align: center;">
-        <button>Contact Us</button>
+      <!-- About Section -->
+      <section id="about">
+        <h2 class="section-title">About Flask Careers</h2>
+        <p class="about-text mx-auto">
+          Lorem ipsum dolor sit amet consectetur adipiscing elit quisque
+          faucibus ex sapien vitae pellentesque sem placerat in id cursus mi
+          pretium tellus duis convallis tempus leo eu aenean sed diam urna
+          tempor pulvinar vivamus fringilla lacus nec metus bibendum egestas
+          iaculis massa nisl malesuada lacinia integer nunc posuere ut hendrerit
+          semper vel class aptent taciti sociosqu ad litora torquent per conubia
+          nostra inceptos himenaeos orci varius natoque penatibus et magnis dis
+          parturient montes nascetur ridiculus mus donec rhoncus eros lobortis
+          nulla molestie mattis scelerisque maximus eget fermentum odio
+          phasellus non purus est efficitur laoreet mauris pharetra vestibulum
+          fusce dictum risus.
+        </p>
+      </section>
+
+      <!-- Open Positions Section -->
+      <section id="jobs" class="open-positions">
+        <h2 class="section-title">Open Positions</h2>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          {% for job in jobs %}
+          <div class="col">
+            {% include 'jobcard.html' %}
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      <!-- Contact Button -->
+      <div class="text-center">
+        <a href="#contact">
+          <button class="btn btn-contact text-white">Contact Us</button>
+        </a>
       </div>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

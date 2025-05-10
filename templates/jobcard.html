@@ -1,0 +1,10 @@
+<div class="card job-car d h-100">
+  <div class="card-body">
+    <h5 class="card-title">{{ job.title }}</h5>
+    <p class="card-text">
+      <strong>Location:</strong> {{ job.location }}<br />
+      <strong>Salary:</strong> IDR {{ "{:,.0f}".format(job.salary) }}
+    </p>
+    <a href="#" class="btn btn-apply text-white">Apply Now</a>
+  </div>
+</div>
